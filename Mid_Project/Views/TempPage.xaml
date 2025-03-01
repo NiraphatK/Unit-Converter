@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mid_Project.TempPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:Mid_Project.ViewModels"
+    Title="TempPage"
+    x:DataType="viewmodel:TempPageViewModel"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  Back Button  -->
+        <AbsoluteLayout Grid.Row="0">
+            <Image
+                x:Name="BackButton"
+                AbsoluteLayout.LayoutBounds="15, 35, 30, 30"
+                Source="{AppThemeBinding Light=darkback.png,
+                                         Dark=lightback.png}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackButton_Clicked" />
+                </Image.GestureRecognizers>
+            </Image>
+        </AbsoluteLayout>
+
+        <!--  Header  -->
+        <Label
+            Margin="0,25,0,25"
+            FontFamily="PoppinsBold"
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            Text="Temperature" />
+
+        <StackLayout Grid.Row="1">
+            <VerticalStackLayout Padding="30">
+                <Label FontSize="20" Text="From" />
+
+                <Entry
+                    x:Name="InputValue"
+                    Margin="0,10"
+                    Keyboard="Numeric"
+                    Placeholder="Enter value" />
+
+                <Grid>
+                    <Picker
+                        Title="Select Unit"
+                        ItemDisplayBinding="{Binding TempName}"
+                        ItemsSource="{Binding TemperatureUnits}"
+                        SelectedItem="{Binding SelectedFromTemp}" />
+                    <Image
+                        Margin="5"
+                        HorizontalOptions="End"
+                        Source="{AppThemeBinding Light=darkarrowdown.png,
+                                                 Dark=lightarrowdown.png}" />
+                </Grid>
+
+                <Image
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="30"
+                    Source="{AppThemeBinding Light=darkswap.png,
+                                             Dark=lightswap.png}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSwapClicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+                <Label FontSize="20" Text="To" />
+
+                <Grid>
+                    <Picker
+                        Title="Select Unit"
+                        ItemDisplayBinding="{Binding TempName}"
+                        ItemsSource="{Binding TemperatureUnits}"
+                        SelectedItem="{Binding SelectedToTemp}" />
+                    <Image
+                        Margin="5"
+                        HorizontalOptions="End"
+                        Source="{AppThemeBinding Light=darkarrowdown.png,
+                                                 Dark=lightarrowdown.png}" />
+                </Grid>
+
+
+                <Button
+                    Margin="0,20"
+                    Clicked="OnConvertClicked"
+                    Text="Convert" />
+
+                <Label
+                    x:Name="ResultLabel"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
+            </VerticalStackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mid_Project.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="false">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="Transparent" StatusBarStyle="Default" />
+    </Page.Behaviors>
+
+    <ScrollView>
+        <StackLayout Padding="20,40">
+            <Grid Padding="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Header Label  -->
+                <Label
+                    x:Name="Header"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    FontFamily="PoppinsBold"
+                    FontSize="35"
+                    TextColor="{AppThemeBinding Light='#121212',
+                                                Dark='#fafafa'}"
+                    VerticalOptions="Center" />
+
+                <!--  ToggleDarkMode  -->
+                <AbsoluteLayout Grid.Row="0" Margin="0,10,0,0">
+
+                    <Image
+                        x:Name="ToggleThemeButton"
+                        AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        MinimumWidthRequest="30"
+                        Source="dark.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ToggleThemeButton_Clicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </AbsoluteLayout>
+
+
+
+            </Grid>
+
+            <!--  Grid Layout  -->
+            <Grid ColumnSpacing="15" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--  Buttons inside Grid  -->
+
+                <!--  Length  -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".2">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="length.png" WidthRequest="50" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Length"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="LengthTapped" />
+                    </Border.GestureRecognizers>
+
+                </Border>
+
+                <!--  Weight  -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="weight.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Weight"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="WeightTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Temperature  -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="temp.png" />
+                        <Label
+                            FontSize="13.5"
+                            HorizontalTextAlignment="Center"
+                            Text="Temperature"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TempTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Area  -->
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="area.png" WidthRequest="50" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Area"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AreaTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Volume  -->
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="volume.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Volume"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="VolumeTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Time  -->
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="time.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Time"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TimeTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Speed  -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="speed.png" WidthRequest="50" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Speed"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SpeedTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Energy  -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="energy.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Energy"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EnergyTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Pressure  -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="pressure.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Pressure"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PressureTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Data  -->
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="data.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Data"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DataTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Currency  -->
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="currency.png" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Currency"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CurrencyTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--  Frequency  -->
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness=".3">
+                    <StackLayout
+                        Padding="0,20"
+                        HorizontalOptions="Center"
+                        Spacing="7"
+                        VerticalOptions="Center">
+                        <Image Source="frequency.png" WidthRequest="50" />
+                        <Label
+                            FontSize="Default"
+                            HorizontalTextAlignment="Center"
+                            Text="Frequency"
+                            TextColor="{AppThemeBinding Light='#121212',
+                                                        Dark='#fafafa'}" />
+                    </StackLayout>
+
+                    <!--  ใช้ GestureRecognizer เพื่อทำให้สามารถคลิกได้  -->
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FreqTapped" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
